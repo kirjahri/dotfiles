@@ -40,7 +40,7 @@ zinit cdreplay -q
 # Powerlevel10k customizations
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Emacs mode and bindings
+# Emacs mode and keybindings
 bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
