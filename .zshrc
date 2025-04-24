@@ -10,34 +10,28 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Zinit
 ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "$ZINIT_HOME/zinit.zsh"
 
-# Prompt (Powerlevel10k)
 zinit ice depth=1
 zinit light romkatv/powerlevel10k
 
-# Plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
-# Snippets
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::archlinux
 zinit snippet OMZP::command-not-found
 
-# Autocompletions
 autoload -Uz compinit
 compinit
 zinit cdreplay -q
 
-# Powerlevel10k customizations
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Emacs mode and keybindings
@@ -45,7 +39,6 @@ bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
-# History
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
@@ -58,17 +51,14 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-# ls colors (Catppuccin Mocha)
 export LS_COLORS="$(vivid generate catppuccin-mocha)"
 
-# Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-# Aliases
 alias c='clear'
 alias ls='eza -1 --icons=auto'
 alias ll='eza -lh --icons=auto'
@@ -77,19 +67,14 @@ alias cat='bat'
 alias vim='nvim'
 alias vi='nvim'
 
-# eza styling
 export EZA_ICON_SPACING=2
 
-# fzf
 eval "$(fzf --zsh)"
 
-# zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
-# Bun
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$PATH:$BUN_INSTALL/bin"
 
-# Spicetify
 export PATH="$PATH:$HOME/.spicetify"
