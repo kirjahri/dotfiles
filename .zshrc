@@ -70,9 +70,9 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
 alias c='clear'
-alias ls='eza -1a --icons=auto'
-alias ll='eza -lha --icons=auto'
-alias tree='eza -Ta --icons=auto'
+alias ls='eza -1 --icons=auto'
+alias ll='eza -lh --icons=auto'
+alias tree='eza -T --icons=auto'
 alias cat='bat'
 alias vim='nvim'
 alias vi='nvim'
