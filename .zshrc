@@ -1,11 +1,9 @@
-# If the user's hostname is a valid pokeget Pokémon...
 if pokeget $(hostnamectl hostname) &> /dev/null; then
-  pokeget --hide-name $(hostnamectl hostname) # output the Pokémon
+  pokeget $(hostnamectl hostname) --hide-name
 else
-  pokeget --hide-name random # output a random Pokémon
+  pokeget random --hide-name
 fi
 
-# Enable Powerlevel10k instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -34,7 +32,6 @@ zinit cdreplay -q
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Emacs mode and keybindings
 bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
@@ -60,21 +57,15 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 alias c='clear'
+
 alias ls='eza -1 --icons=auto'
 alias ll='eza -lh --icons=auto'
 alias tree='eza -T --icons=auto'
+
 alias cat='bat'
-alias vim='nvim'
-alias vi='nvim'
 
 export EZA_ICON_SPACING=2
 
 eval "$(fzf --zsh)"
 
 eval "$(zoxide init --cmd cd zsh)"
-
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$PATH:$BUN_INSTALL/bin"
-
-export PATH="$PATH:$HOME/.spicetify"
