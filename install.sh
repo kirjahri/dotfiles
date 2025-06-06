@@ -80,6 +80,10 @@ DOTFILES_DIR="$HOME/dotfiles"
 
 packages=(
   "zsh"
+  "fzf"
+  "vivid"
+  "eza"
+  "bat"
   "zoxide"
   "gcc"
   "make"
