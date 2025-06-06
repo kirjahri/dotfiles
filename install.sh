@@ -159,8 +159,6 @@ esac
 echo ":: Installing packages..."
 install_packages_with_yay "${packages[@]}"
 
-fc-cache -f -v # updates font cache
-
 echo ":: Cloning dotfiles GitHub repository"
 if [ -d "$DOTFILES_DIR" ]; then
   echo "The dotfiles directory ($DOTFILES_DIR) already exists and must be deleted in order to continue"
