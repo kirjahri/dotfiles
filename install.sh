@@ -169,6 +169,8 @@ echo ":: Symlinking configuration files..."
 stow --adopt .
 git pull origin main # the --adopt on stow flog overwrites the files in the dotfiles folder so this is done in order to restore them
 
+chsh -s $(which zsh)
+
 cat << "EOF"
   ____           _       ___           _        _ _
  |  _ \ ___  ___| |_    |_ _|_ __  ___| |_ __ _| | |
@@ -178,13 +180,13 @@ cat << "EOF"
 
 EOF
 
-echo "A shell restart must be done in order to ensure that all configurations are working correctly"
-read -p "Would you like to restart your shell? [Y/n]: " yn
+echo "A reboot must be done in order to ensure that all configurations are working correctly"
+read -p "Would you like to reboot your system? [Y/n]: " yn
 case $yn in
   [Nn]*)
     ;;
   *)
-    echo ":: Restarting..."
-    exec /bin/zsh
+    echo ":: Rebooting..."
+    systemctl reboot
     ;;
 esac
