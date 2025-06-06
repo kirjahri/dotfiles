@@ -2,6 +2,10 @@
 
 The dotfiles for my Linux system(s).
 
-# Installation
+## Installation
 
-An install script is coming eventually (when I feel like it).
+Run the following command in your terminal:
+
+```sh
+bash -c "$(curl -s https://raw.githubusercontent.com/kirjahri/dotfiles/refs/heads/main/install.sh)"
+```
