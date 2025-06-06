@@ -64,6 +64,7 @@ packages=(
   "gcc"
   "make"
   "git"
+  "github-cli"
   "ripgrep"
   "fd"
   "unzip"
