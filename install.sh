@@ -80,6 +80,7 @@ DOTFILES_DIR="$HOME/dotfiles"
 
 packages=(
   "zsh"
+  "zoxide"
   "gcc"
   "make"
   "git"
@@ -186,7 +187,7 @@ esac
 
 echo ":: Symlinking configuration files..."
 stow --adopt .
-git pull origin main # the --adopt on stow flog overwrites the files in the dotfiles folder so this is done in order to restore them
+git restore . # the --adopt on stow flog overwrites the files in the dotfiles folder so this is done in order to restore them
 
 chsh -s $(which zsh)
 
