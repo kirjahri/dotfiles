@@ -1,0 +1,11 @@
+[user]
+	name = kirjahri
+	email = 150558369+kirjahri@users.noreply.github.com
+[init]
+	defaultBranch = main
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
