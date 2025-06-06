@@ -90,15 +90,14 @@ cat << "EOF"
 
 EOF
 
-echo ":: Synchronizing package databases..."
-sudo pacman -Sy
-
 echo ":: Installing yay..."
 if command_exists "yay"; then
   echo ":: yay is already installed"
 else
   install_yay
 fi
+
+sudo pacman -Sy
 
 cat << "EOF"
   ___           _        _ _
