@@ -57,6 +57,25 @@ install_yay() {
   cd "$temp_path"
 }
 
+install_packages_with_yay() {
+  uninstalled_packages=()
+
+  for package; do
+    if is_installed "$package"; then
+      echo ":: $package is already installed"
+      continue
+    fi
+
+    uninstalled_packages+=("$package")
+  done
+
+  [ -z "${uninstalled_packages[@]}" ] && return
+
+  echo "The following packages will be installed:"
+  printf "  %s\n" "${uninstalled_packages[@]}"
+  yes | yay -S "${uninstalled_packages[@]}"
+}
+
 DOTFILES_DIR="$HOME/dotfiles"
 
 packages=(
@@ -119,7 +138,7 @@ case $yn in
 esac
 
 echo ":: Installing packages..."
-install_packages "${packages[@]}"
+install_packages_with_yay "${packages[@]}"
 
 fc-cache -f -v # updates font cache
 
