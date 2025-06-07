@@ -67,10 +67,10 @@ install_yay() {
         ;;
     esac
   else
-      git clone https://aur.archlinux.org/yay.git "$install_path"
-      cd "$install_path"
-      makepkg -si
-      echo ":: yay has been installed successfully"
+    git clone https://aur.archlinux.org/yay.git "$install_path"
+    cd "$install_path"
+    makepkg -si
+    echo ":: yay has been installed successfully"
   fi
 
   cd "$temp_path"
