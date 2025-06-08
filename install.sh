@@ -88,7 +88,7 @@ install_packages_with_yay() {
     uninstalled_packages+=("$package")
   done
 
-  [ -z "${uninstalled_packages[@]}" ] && return
+  [[ -z "${uninstalled_packages[@]}" ]] && return
 
   echo "The following packages will be installed:"
   printf "  %s\n" "${uninstalled_packages[@]}"
