@@ -24,7 +24,7 @@ install_packages() {
     uninstalled_packages+=("$package")
   done
 
-  [ -z "${uninstalled_packages[@]}" ] && return
+  [[ -z "${uninstalled_packages[@]}" ]] && return
 
   echo "The following packages will be installed:"
   printf "  %s\n" "${uninstalled_packages[@]}"
@@ -119,7 +119,7 @@ packages=(
   "pipes.sh"
   "cava"
   "stow"
-)
+)]
 
 clear
 
